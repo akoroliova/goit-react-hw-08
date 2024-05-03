@@ -1,25 +1,24 @@
-import ContactForm from "./contactform/ContactForm.jsx";
-import ContactList from "./contactlist/ContactList.jsx";
-import SearchBox from "./searchbox/SearchBox.jsx";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../redux/contacts/operations.js";
+import DocumentTitle from "../../components/DocumentTitle";
+import { ContactList } from "../../components/contactlist/ContactList";
+import { ContactForm } from "../../components/contactform/ContactForm";
+import { SearchBox } from "../../components/searchbox/SearchBox";
+import { fetchContacts } from "../../redux/contactsOps";
 
-function App() {
+export default function TasksPage() {
   const dispatch = useDispatch();
-  // Викликаємо операцію
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  // Отримуємо частини стану
   const isLoading = useSelector((state) => state.contacts.loading);
   const error = useSelector((state) => state.contacts.error);
 
-  // Рендеримo розмітку в залежності від значень у стані
   return (
     <>
-      <h1>Phonebook</h1>
+      <DocumentTitle>Phonebook</DocumentTitle>
       <ContactForm />
       <SearchBox />
       {isLoading && !error && <p>Loading contacts...</p>}
@@ -28,5 +27,3 @@ function App() {
     </>
   );
 }
-
-export default App;
