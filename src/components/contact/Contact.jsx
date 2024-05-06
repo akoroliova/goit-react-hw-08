@@ -4,7 +4,7 @@ import { LuPhone } from "react-icons/lu";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 
-export const Contact = ({ contactId, name, number }) => {
+export default function Contact({ contactId, name, number }) {
   const dispatch = useDispatch();
 
   return (
@@ -35,4 +35,4 @@ export const Contact = ({ contactId, name, number }) => {
       </div>
     </div>
   );
-};
+}
