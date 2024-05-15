@@ -35,7 +35,7 @@ export const register = createAsyncThunk(
 /*
  * POST @ /users/login
  * body: { email, password }
- * Використовується у компоненті LoginForm
+ * . Використовується у компоненті LoginForm на сторінці логіну.
  */
 export const logIn = createAsyncThunk(
   "auth/login",
@@ -44,6 +44,7 @@ export const logIn = createAsyncThunk(
       const res = await axios.post("/users/login", credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -76,8 +77,10 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     // Reading the token from the state via getState()
     const state = thunkAPI.getState();
+
     const persistedToken = state.auth.token;
 
+    //
     //Токен авторизованого користувача потрібно зберігати в локальному сховищі за допомогою бібліотеки persist.
     //
 
@@ -89,7 +92,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get("/users/me");
+      const res = await axios.get("/users/current");
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
