@@ -65,7 +65,7 @@ export default function App() {
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/cntacts" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
         <Route
