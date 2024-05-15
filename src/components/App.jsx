@@ -7,7 +7,7 @@ import { RestrictedRoute } from "./RestrictedRoute";
 import { refreshUser } from "../redux/auth/operations.js";
 import { useAuth } from "../hooks";
 
-const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
@@ -23,33 +23,6 @@ export default function App() {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    // <Layout>
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route
-    //       path="/register"
-    //       element={
-    //         <RestrictedRoute
-    //           redirectTo="/contacts"
-    //           component={<RegisterPage />}
-    //         />
-    //       }
-    //     />
-    //     <Route
-    //       path="/login"
-    //       element={
-    //         <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-    //       }
-    //     />
-    //     <Route
-    //       path="/contacts"
-    //       element={
-    //         <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-    //       }
-    //     />
-    //   </Routes>
-    //   </Layout>
-
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -69,7 +42,7 @@ export default function App() {
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
