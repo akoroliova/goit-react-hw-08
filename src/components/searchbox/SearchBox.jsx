@@ -3,7 +3,7 @@ import { selectFilterInput } from "../../redux/filters/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./SearchBox.module.css";
 
-export default function SearchBox () {
+export default function SearchBox() {
   const dispatch = useDispatch();
 
   const searchBoxData = useSelector(selectFilterInput);
@@ -21,4 +21,4 @@ export default function SearchBox () {
       />
     </div>
   );
-};
+}

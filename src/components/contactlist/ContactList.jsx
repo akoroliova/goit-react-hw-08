@@ -1,9 +1,9 @@
 import css from "./ContactList.module.css";
-import { Contact } from "../contact/Contact.jsx";
+import Contact from "../contact/Contact.jsx";
 import { useSelector } from "react-redux";
 import { selectVisibleContacts } from "../../redux/contacts/selectors.js";
 
-export default function ContactList () {
+export default function ContactList() {
   const items = useSelector(selectVisibleContacts);
 
   if (items.length > 0)
@@ -21,4 +21,4 @@ export default function ContactList () {
         </ul>
       </div>
     );
-};
+}

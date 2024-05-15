@@ -13,3 +13,5 @@ export const selectVisibleContacts = createSelector(
     );
   }
 );
+
+export const selectLoading = (state) => state.contacts.loading;
