@@ -9,7 +9,6 @@ export const RegisterForm = () => {
     e.preventDefault();
 
     const form = e.target;
-    //const form = e.currentTarget;
 
     dispatch(
       register({

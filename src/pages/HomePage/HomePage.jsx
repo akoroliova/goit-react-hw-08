@@ -3,8 +3,8 @@ import css from "./HomePage.module.css";
 export default function HomePage() {
   return (
     <>
-      <div style={css.container}>
-        <h1 style={css.title}>
+      <div className={css.container}>
+        <h1 className={css.title}>
           Phonebook welcome page{" "}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️

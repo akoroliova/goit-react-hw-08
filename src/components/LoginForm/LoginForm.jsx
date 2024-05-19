@@ -15,13 +15,6 @@ export default function LoginForm() {
         password: form.elements.password.value,
       })
     );
-    // .unwrap()
-    // .then(() => {
-    //   console.log("login success");
-    // })
-    // .catch(() => {
-    //   console.log("login error");
-    // })
 
     form.reset();
   };
