@@ -1,12 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { selectFilterInput } from "../filters/selectors.js";
+import { selectNameFilter } from "../filters/selectors.js";
 
-export const selectContactsArray = (state) => {
+export const selectContacts = (state) => {
   return state.contacts.items;
 };
 
 export const selectVisibleContacts = createSelector(
-  [selectContactsArray, selectFilterInput],
+  [selectContacts, selectNameFilter],
   (contacts, filter) => {
     return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
